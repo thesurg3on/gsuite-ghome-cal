@@ -1,3 +1,5 @@
+//Descriptions and locations are important to me so I added the functionality. 
+
 function addToGoogleHome() {
     var calendarsWithName = {
        "Work": "<gsuite-email>"
@@ -35,8 +37,8 @@ function addToGoogleHome() {
         
         // Create events
         for (var j = 0; j < events.length; j++) {
-          googleHomeCalendar.createEvent(name + " " + events[j].getTitle(), events[j].getStartTime(), events[j].getEndTime());
-          msg += "Added event: " + events[j].getTitle() + " from " + events[j].getStartTime() + " to " + events[j].getEndTime() + "\n";
+         googleHomeCalendar.createEvent(events[j].getTitle(), events[j].getStartTime(), events[j].getEndTime(), {location: events[j].getLocation(), description: events[j].getDescription()});
+          msg += "Added event: " + events[j].getTitle() + " from " + events[j].getStartTime() + " to " + events[j].getEndTime() +  "\n" + "Description: " + events[j].getDescription() +"\n\n";
         }
         num_events = num_events + events.length;
       }
